@@ -30,7 +30,7 @@ public class SleepAdapter extends RealmBaseAdapter<Sleep> implements ListAdapter
 	private final DateFormat format = new SimpleDateFormat("HH:mm");
 	private final DateFormat formatGMT = new SimpleDateFormat("HH:mm");
 	private final DateFormat dateFormat = new SimpleDateFormat("E MMM dd", Locale.ENGLISH);
-	private final Context context;
+	private Context context = null;
 	private final boolean autometicUpdate;
 	private final RealmResults<Sleep> realmresults;
 	RealmResults<Sleep> realmResults;
@@ -58,10 +58,11 @@ public class SleepAdapter extends RealmBaseAdapter<Sleep> implements ListAdapter
 
 
 
-	public View getView(final int position, LayoutInflater inflater, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder viewHolder;
 		if (convertView == null) {
 			// Load custom layout file
+			LayoutInflater inflater=LayoutInflater.from(parent.getContext());
 			convertView = inflater.inflate(R.layout.sleep_item, parent, false);
 			viewHolder = new ViewHolder();
 
@@ -78,7 +79,7 @@ public class SleepAdapter extends RealmBaseAdapter<Sleep> implements ListAdapter
 		}
 
 		// Get the sleep object from the database results
-		RealmResults<Sleep> realmResults;
+		RealmResults<Sleep> realmResults = null;
 		final Sleep s = realmResults.get(position);
 
 		// Calculate the start, end, and duration of the sleep.
@@ -127,7 +128,7 @@ public class SleepAdapter extends RealmBaseAdapter<Sleep> implements ListAdapter
 
 
 	public RealmResults<Sleep> getRealmResults() {
-        RealmResults<Sleep> realmResults;
+        RealmResults<Sleep> realmResults = null;
         return realmResults;
 	}
 

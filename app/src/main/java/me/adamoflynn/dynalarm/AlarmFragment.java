@@ -3,7 +3,7 @@ package me.adamoflynn.dynalarm;
 import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;

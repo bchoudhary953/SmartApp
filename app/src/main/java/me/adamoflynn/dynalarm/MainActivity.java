@@ -21,10 +21,6 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-
 import io.realm.Realm;
 import me.adamoflynn.dynalarm.adapters.ViewPagerAdapter;
 import me.adamoflynn.dynalarm.receivers.AlarmReceiver;
@@ -92,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 		ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 		adapter.addFragment(new AlarmFragment());
 		adapter.addFragment(new AnalysisFragment());
-		adapter.addFragment(new SettingsFragment());
+		//adapter.addFragment(new SettingsFragment());
 		viewPager.setAdapter(adapter);
 	}
 

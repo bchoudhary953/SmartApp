@@ -29,7 +29,8 @@ public class RoutineAdapter extends RealmBaseAdapter<Routine> implements ListAda
 	public void updateRealmResults(RealmResults<Routine> routines) {
 
 	}
-    public static class ViewHolder {
+
+	public static class ViewHolder {
 		TextView name;
 		TextView desc;
 		CheckBox checkBox;
@@ -46,10 +47,11 @@ public class RoutineAdapter extends RealmBaseAdapter<Routine> implements ListAda
 
 
 
-	public View getView(final int position, LayoutInflater inflater, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder viewHolder;
 		if (convertView == null) {
 			// Load in my custom routine layout
+			LayoutInflater inflater=LayoutInflater.from(parent.getContext());
 			convertView = inflater.inflate(R.layout.routine_item, parent, false);
 			viewHolder = new ViewHolder();
 			// Get references to the relevant layout aspects
@@ -89,7 +91,8 @@ public class RoutineAdapter extends RealmBaseAdapter<Routine> implements ListAda
 
 
 	public RealmResults<Routine> getRealmResults() {
-		RealmResults<Routine> realmResults;
+
+		RealmResults<Routine> realmResults = null;
 		return realmResults;
 	}
 

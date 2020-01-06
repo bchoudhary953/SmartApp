@@ -1,5 +1,6 @@
 package me.adamoflynn.dynalarm.adapters;
-import android.app.Fragment;
+
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
@@ -13,32 +14,40 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 	// Get list of all the fragments to add to the adapter -> Alarm, Analysis, and Settings
 	private final List<Fragment> mFragmentList = new ArrayList<>();
 
-	public ViewPagerAdapter(FragmentManager manager) {
+	 public ViewPagerAdapter(FragmentManager manager) {
 		super(manager);
 
 	}
 
-
+    @Override
 	public Fragment getItem(int position) {
 		// If user is in the settings fragment, return the settings fragment.
 		if(position == 2){
-			return new SettingsFragment();
+			return new Fragment();
 		}
-		else return mFragmentList.get(position);
+		else {
+			return mFragmentList.get(position);
+		}
 	}
 
 	@Override
-	public int getCount() {
+	public int getCount()
+	{
 		return mFragmentList.size();
 	}
 
-	public void addFragment(Fragment fragment) {
+
+	public void addFragment(Fragment fragment)
+	{
 		mFragmentList.add(fragment);
 	}
 
 
 	@Override
-	public CharSequence getPageTitle(int position) {
+	public CharSequence getPageTitle(int position)
+    {
 		return null;
 	}
+
+
 }

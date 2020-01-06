@@ -30,10 +30,11 @@ public class LocationAdapter extends RealmBaseAdapter<Location> implements ListA
 	}
 
 	// This method populates the list view with every object in Realm Results list
-	public View getView(final int position, LayoutInflater inflater, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder viewHolder;
 		if (convertView == null) {
 			// Use my specific location item layout
+			LayoutInflater inflater=LayoutInflater.from(parent.getContext());
 			convertView = inflater.inflate(R.layout.location_item, parent, false);
 			// Get a new viewholder so we can update UI
 			viewHolder = new ViewHolder();
